@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: kidney-disease-backend
+    env: node
+    region: frankfurt          # or singapore, frankfurt – closest to you
+    plan: free
+    branch: main
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      NODE_VERSION: 20.x
+      PORT: 10000
+      ML_XGBOOST: "https://xgboost-service-ddal.onrender.com/predict"
+      ML_RF:      "https://randomforest-service.onrender.com/predict"
+      ML_NN:      "https://neuralnet-service.onrender.com/predict"
+      ML_SVM:     "https://svm-service.onrender.com/predict"
+      ML_LOGISTIC:"https://logistic-service-djty.onrender.com/predict"
